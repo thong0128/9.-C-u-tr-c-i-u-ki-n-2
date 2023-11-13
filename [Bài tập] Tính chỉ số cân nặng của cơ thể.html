@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tính chỉ số cân nặng của cơ thể</title>
+</head>
+<body>
+<h3>BMI Calculator</h3>
+<label for="height">Chiều cao</label>
+<input type="number" name="" id="height" placeholder="Cm">
+<label for="weight">Cân nặng</label>
+<input type="number" name="" id="weight" placeholder="Kg">
+<button onclick="bmi()">BMI</button>
+<p>Chỉ số BMI của bạn là: <span id="BMI">...</span>. Phân loại: <span id=bodytype>...</span></p>
+<script>
+    function bmi() {
+        let height = +document.getElementById("height").value;
+        let weight = +document.getElementById("weight").value;
+        let bmi;
+        let bodytype;
+        if (height>0 && weight>0) {
+            bmi = weight / (height*height);
+            if (bmi<18.5) {
+                bodytype = "Underweight";
+            } else if (bmi<25) {
+                bodytype = "Normal";
+            } else if (bmi<30) {
+                bodytype = "Overweight";
+            } else {
+                bodytype = "Obese";
+            }
+        }else {
+            document.getElementById("BMI").innerText = "chiều cao và cân nặng không hợp lệ";
+            document.getElementById("bodytype").innerText = "không có";
+        }
+        document.getElementById("BMI").innerText = bmi.toFixed(2);
+        document.getElementById("bodytype").innerText = bodytype;
+
+    }
+</script>
+</body>
+</html>
