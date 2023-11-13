@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Câu lệnh switch-case</title>
+</head>
+<body>
+<input type="number" name="" id="monthnum" placeholder="Nhập số thứ tự tháng cần tính">
+<button onclick="monthDay()">Tính số ngày</button>
+<p id="result">Tháng <span id="month">...</span> có <span id="monthday">...</span> ngày.</p>
+<script>
+    function monthDay() {
+        let monthnum = +document.getElementById("monthnum").value;
+        let monthday;
+        switch (monthnum) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                monthday = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                monthday = 30;
+                break;
+            case 2:
+                monthday = "28 hoặc 29";
+                break;
+            default:
+                document.getElementById("result").innerText = "Không hợp lệ, vui lòng nhập lại";
+                break;
+
+        }
+        document.getElementById("month").innerText = monthnum;
+        document.getElementById("monthday").innerText = monthday;
+    }
+</script>
+</body>
+</html>
